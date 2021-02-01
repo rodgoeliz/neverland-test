@@ -1,7 +1,5 @@
 # neverland-test
 
-# HOW TO RUN
-
 ## How to run - Server
 
 required .env file
