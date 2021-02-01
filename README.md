@@ -4,6 +4,17 @@
 
 ## How to run - Server
 
+required .env file
+
+```
+
+MONGO_DB_NAME=<database>
+MONDO_DB_CLUSTER_NAME=<clusterName>
+MONGO_DB_USER=<db_user>
+MONGO_DB_PASSWORD=<db_user_password>
+
+```
+
 - Ask for env file and replace it with proper configuration.
 - Install node version manager
 - move terminal cursor to root/app
