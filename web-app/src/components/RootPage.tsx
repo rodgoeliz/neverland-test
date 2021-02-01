@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography } from '@material-ui/core';
-import { theme } from 'themes/default';
+import { Box, Container } from '@material-ui/core';
 
 export interface PageProps {
   children: JSX.Element[];
@@ -9,11 +8,6 @@ export interface PageProps {
 const RootPage: React.FC<PageProps> = ({ children }) => {
   return (
     <Box>
-      <Box style={{ position: 'absolute', top: theme.spacing(4), left: theme.spacing(4) }}>
-        <Typography align="center" component="h1" variant="h5">
-          NeverLand
-        </Typography>
-      </Box>
       <Container component="main" maxWidth="lg" style={{ maxHeight: '100vh', overflow: 'scroll' }}>
         {children}
       </Container>
