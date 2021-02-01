@@ -11,7 +11,6 @@ export const getProducts = async (
   res: Response
 ): Promise<void> => {
   try {
-    //Pagination code
     const paginateEvaluation = await paginatorValidation(req);
     if (!paginateEvaluation.valid) {
       res.status(422).jsonp(paginateEvaluation.errors);

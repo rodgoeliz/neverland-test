@@ -15,11 +15,12 @@ export const generatePlants = async (count: number) => {
     petToxicity: "non-toxic",
   };
 
-  const asd = Array.from(Array(count).keys()).map((value) => {
-    return { ...p, title: `${value}-${p.title}` };
-  });
-
-  return Plant.insertMany((asd as unknown) as PlantDocument[]);
+  return Plant.insertMany(
+    (Array.from(Array(count).keys()).map((value) => ({
+      ...p,
+      title: `${value}-${p.title}`,
+    })) as unknown) as PlantDocument[]
+  );
 };
 
 export const generateProducts = async (count: number, plantId: string) => {
