@@ -24,11 +24,13 @@ const ProductList: React.FC = () => {
       const element = event.target as HTMLElement;
       if (loading !== LoadingStates.IDLE) return;
 
-      if ((element.scrollHeight - element.scrollTop) / element.clientHeight < 1 && !isLastPage) {
+      const isBottom = element.scrollHeight - element.scrollTop === element.clientHeight;
+      const isTop = products.length > 0 && element.scrollTop === 0;
+      if (isBottom && !isLastPage) {
         dispatch(nextPage());
         dispatch(fetchProducts({ pageNo: currentPage + 1, pageSize, isNextPage: true }));
       }
-      if (products.length > 0 && element.scrollTop === 0 && currentPage > 1) {
+      if (isTop && currentPage > 1) {
         dispatch(previousPage());
         dispatch(fetchProducts({ pageNo: currentPage - 1, pageSize, isNextPage: false }));
       }
@@ -47,7 +49,6 @@ const ProductList: React.FC = () => {
           flexWrap: 'wrap',
           height: '63rem',
           overflowY: 'scroll',
-          paddingTop: '1rem',
         }}
       >
         {products.map(({ price, plant, _id }) => (
